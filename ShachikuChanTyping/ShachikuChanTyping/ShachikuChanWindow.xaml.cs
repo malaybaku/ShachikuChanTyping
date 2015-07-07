@@ -6,9 +6,8 @@ using System.Diagnostics;
 using System.Windows;
 using System.Windows.Input;
 using System.Windows.Media.Animation;
-//スクリーンサイズの取得に必要
+
 using System.Windows.Forms;
-//スクリーンサイズの取得に必要
 using Drawing = System.Drawing;
 
 namespace ShachikuChanTyping
@@ -50,7 +49,7 @@ namespace ShachikuChanTyping
         /// <summary>スクリーンの左下にウィンドウを移動させます。</summary>
         private void RelocateToLeftBottom()
         {
-            var area = System.Windows.Forms.Screen.GetWorkingArea(Drawing.Point.Empty);
+            var area = Screen.GetWorkingArea(Drawing.Point.Empty);
 
             var dpiFactor = GetDpiFactors();
             this.Left = (area.Left) / dpiFactor.X;
@@ -94,8 +93,14 @@ namespace ShachikuChanTyping
             {
                 DoShachikuChanAnimation("KeyboardType");
             }
-
         }
+
+        //デバッグ実行でもタイピング挙動を試したい場合はコメントアウト解除
+        //protected override void OnKeyDown(System.Windows.Input.KeyEventArgs e)
+        //{
+        //    base.OnKeyDown(e);
+        //    DoShachikuChanAnimation("KeyboardType");
+        //}
 
         /// <summary>「退社」がクリックされた時の処理です。</summary>
         private void OnLeaveOfficeClick(object sender, RoutedEventArgs e)
