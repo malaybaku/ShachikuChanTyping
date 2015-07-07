@@ -1,0 +1,31 @@
+﻿<Window x:Class="ShachikuChanTyping.MainWindow"
+        xmlns="http://schemas.microsoft.com/winfx/2006/xaml/presentation"
+        xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml"
+        xmlns:local="clr-namespace:ShachikuChanTyping"
+        ResizeMode="NoResize"
+        ShowInTaskbar="False"
+        AllowsTransparency="True"
+        WindowStyle="None"
+        Background="Transparent"
+        Title="MainWindow" Height="460" Width="600"
+        >
+    <Window.ContextMenu>
+        <ContextMenu>
+            <MenuItem Header="退社" Click="OnLeaveOfficeClick"/>
+            <MenuItem x:Name="MenuItemEnergyMode" Header="元気モード" IsCheckable="True" Click="OnEnergyModeChanged"/>
+            <MenuItem x:Name="MenuItemTopmost" Header="最前面に表示" IsCheckable="True" Click="OnTopmostChanged"/>
+            <StackPanel Orientation="Horizontal">
+                <TextBlock Text="サイズ"/>
+                <Slider x:Name="SliderSize"  Minimum="0.3" Maximum="2.0" TickFrequency="0.1" IsSnapToTickEnabled="True" 
+                        Value="0.5"
+                        Width="80"
+                        ValueChanged="OnSizeChanged"
+                        />
+            </StackPanel>
+            <MenuItem Header="台詞メーカーを開く" Click="OnOpenSerihuMakerClick"/>
+        </ContextMenu>
+    </Window.ContextMenu>
+    <Grid>
+        <local:ShachikuChan x:Name="ShachikuChan"/>
+    </Grid>
+</Window>
