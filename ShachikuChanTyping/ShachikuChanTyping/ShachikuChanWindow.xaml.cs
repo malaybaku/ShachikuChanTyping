@@ -232,18 +232,25 @@ namespace ShachikuChanTyping
             }
             else
             {
-                //アニメーション適用中は多重でアニメーションしない
-                if (!_shakeEnabled) return;
-
-                //当たり判定計算
+                //当たり判定計算に用いる
                 var pos = e.GetPosition(this);
                 double x = pos.X / Width;
                 double y = pos.Y / Height;
-                if (x < OppaiLeft || OppaiRight < x) return;
-                if (y < OppaiTop || OppaiBottom < y) return;
 
-                _shakeEnabled = false;
-                DoShachikuChanAnimation("Shake");                    
+                //胸以外を触ってる場合
+                if (x < OppaiLeft || OppaiRight < x || y < OppaiTop || OppaiBottom < y)
+                {
+                    DragMove();
+                }
+                else
+                {
+                    //アニメーション適用中は多重でアニメーションしない
+                    if (!_shakeEnabled) return;
+
+                    _shakeEnabled = false;
+                    DoShachikuChanAnimation("Shake");                    
+                }
+                
             }
         }
 
