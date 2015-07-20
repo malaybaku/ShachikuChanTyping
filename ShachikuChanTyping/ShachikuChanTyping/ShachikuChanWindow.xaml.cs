@@ -97,6 +97,9 @@ namespace ShachikuChanTyping
             ApplyEnergyMode(_setting.IsEnergyMode);
             ApplySexyMode(_setting.IsSexyModeEnabled);
 
+            Storyboard typing = ShachikuChanSexyVersion.TryFindResource("KeyboardType") as Storyboard;
+            if (typing != null) typing.Completed += (_, __) => _typingEnabled = true;
+
             Storyboard shake = ShachikuChanSexyVersion.TryFindResource("Shake") as Storyboard;
             if (shake != null) shake.Completed += OnShakeCompleted;
 
@@ -176,7 +179,18 @@ namespace ShachikuChanTyping
         {
             if (e.UpDown != KeyboardUpDown.Down)
             {
-                DoShachikuChanAnimation("KeyboardType");
+                if (this.ShachikuChan.Visibility == Visibility.Visible)
+                {
+                    DoShachikuChanAnimation("KeyboardType");
+                }
+                else
+                {
+                    if (_typingEnabled)
+                    {
+                        _typingEnabled = false;
+                        DoShachikuChanAnimation("KeyboardType");                        
+                    }
+                }
             }
         }
 
@@ -321,6 +335,7 @@ namespace ShachikuChanTyping
         private KeyboardHook _keyboardHook;
 
         private int _oppaiCount;
+        private bool _typingEnabled = true;
         private bool _shakeEnabled = true;
 
     }
