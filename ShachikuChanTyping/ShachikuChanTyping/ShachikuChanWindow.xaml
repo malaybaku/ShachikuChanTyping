@@ -22,10 +22,12 @@
                         ValueChanged="OnSizeChanged"
                         />
             </StackPanel>
+            <MenuItem x:Name="MenuItemSexyMode" Header="セクシーモード" IsCheckable="True" Click="OnSexyModeChanged"/>
             <MenuItem Header="台詞メーカーを開く" Click="OnOpenSerihuMakerClick"/>
         </ContextMenu>
     </Window.ContextMenu>
     <Grid>
-        <local:ShachikuChan x:Name="ShachikuChan"/>
+        <local:ShachikuChan x:Name="ShachikuChan" Visibility="Hidden"/>
+        <local:ShachikuChanSexyVersion x:Name="ShachikuChanSexyVersion"/>
     </Grid>
 </Window>

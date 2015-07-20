@@ -38,6 +38,8 @@ namespace ShachikuChanTyping
         public bool IsEnergyMode { get; set; }
         /// <summary>キャラを最前面に表示するかどうかを取得、設定します。</summary>
         public bool IsTopmost { get; set; }
+        /// <summary>セクシーモードが適用されているかどうかを取得、設定します。</summary>
+        public bool IsSexyModeEnabled { get; set; }
 
         /// <summary>設定を保存します。</summary>
         public void Save()

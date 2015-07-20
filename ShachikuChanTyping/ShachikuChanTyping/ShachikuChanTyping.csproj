@@ -66,6 +66,10 @@
       <DependentUpon>ShachikuChan.xaml</DependentUpon>
     </Compile>
     <Compile Include="ShachikuChanSetting.cs" />
+    <Page Include="ShachikuChanSexyVersion.xaml">
+      <SubType>Designer</SubType>
+      <Generator>MSBuild:Compile</Generator>
+    </Page>
     <Page Include="ShachikuChanWindow.xaml">
       <Generator>MSBuild:Compile</Generator>
       <SubType>Designer</SubType>
@@ -73,6 +77,9 @@
     <Compile Include="App.xaml.cs">
       <DependentUpon>App.xaml</DependentUpon>
       <SubType>Code</SubType>
+    </Compile>
+    <Compile Include="ShachikuChanSexyVersion.xaml.cs">
+      <DependentUpon>ShachikuChanSexyVersion.xaml</DependentUpon>
     </Compile>
     <Compile Include="ShachikuChanWindow.xaml.cs">
       <DependentUpon>ShachikuChanWindow.xaml</DependentUpon>
